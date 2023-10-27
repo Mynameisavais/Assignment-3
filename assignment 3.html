@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess my number</title>
+        <script>
+            var a = 0
+            function mynumber()  {
+                
+            a = a +1 ;
+           document.getElementById("guess").innerHTML = "Number of guesses " + a;
+       answer = document.getElementById("answer").value; 
+         if(answer<=40)  { 
+                 document.getElementById("low").innerHTML = "You guessed too low";
+            }
+             if(answer>+80)   {
+             document.getElementById("low").innerHTML = "You guessed too high";
+            }
+            if(answer==67) {
+                document.getElementById("disable").disabled = true;
+               document.getElementById("low").innerHTML = "You win";
+               document.getElementById("answer").disabled = true;
+
+            }
+            if(answer>40)  {
+            if(answer<67)
+                document.getElementById("low").innerHTML = "You guessed a little bit low";
+            }
+            if(answer>67)  {
+            if(answer<80)
+                document.getElementById("low").innerHTML = "You guessed a little bit high";
+            }
+            document.getElementById("number").innerHTML = "Last guess " + answer;
+            document.getElementById("answer").value = "";
+            }
+            function restart() {
+                if(answer==67) {
+                document.getElementById("answer").disabled = false;
+                document.getElementById("answer").value = "";
+                document.getElementById("disable").disabled = false;
+               
+
+            }
+            }
+        
+         </script>
+    </head>
+    <body style="background-color: blue;">
+       
+      
+
+    <center>
+        <h1>Guess the number between 1-100</h1>
+    </center>
+        <center>
+    <input type = "text" id="answer" min="1" max="100"> <button id="disable" onclick="mynumber();">Guess</button>
+        </center> 
+        <center>
+            <button id="disable" onclick="restart();">reset</button>
+        </center>
+
+
+    
+    <p id="low">
+       
+    </p>
+    <p id="guess">
+
+    </p>
+    <p id="number">
+
+    </p>
+</body>
+</html>
